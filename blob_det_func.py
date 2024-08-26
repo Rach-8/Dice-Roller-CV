@@ -1,9 +1,16 @@
 import cv2
 import numpy as np;
-
+from datetime import date,timedelta
 num_rec_lst = []
+td = date.today()
+
+
+prev_day = td - timedelta(days=1)
+cd = prev_day.strftime('%d')
+cm = prev_day.strftime('%B')
+
 def blob_det(i):
-    Path = "Test2/dice_"+str(i+1)+".jpg"
+    Path = '/mnt/Dice_pics/D6/Raw/{cm}_{cd}'
     im_gray = cv2.imread(Path,cv2.IMREAD_GRAYSCALE)
     #gray scale image
     output = im_gray.copy() 
